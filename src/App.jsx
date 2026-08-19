@@ -93,7 +93,7 @@ export default function App() {
         card={selectedCard}
         isOpen={selectedCard !== null}
         onClose={() => setSelectedCard(null)}
-        includeRulesDefault={true}
+        includeRulesDefault={false}
       />
     </div>
   )
