@@ -37,7 +37,12 @@ A modern **React + Vite** web application designed for production gate checklist
 
 
 ---
+## 🔗 Live Demo & Repository
 
+- 🔴 **Live Demo (Frontend)**: [https://focus-pulse-mu.vercel.app/](https://prodgate.netlify.app/)
+- 📦 **GitHub**: [https://github.com/Foam-01/Focus-Pulse](https://github.com/Foam-01/ProdGate)
+
+---
 ## 🚀 Getting Started
 
 ### Prerequisites
