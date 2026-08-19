@@ -179,86 +179,645 @@ export const CARDS_PART1 = [
 - ต้องอธิบายเหตุผลของการเปลี่ยนข้อความ
 - หลังแก้เสร็จให้สรุปข้อความที่เปลี่ยนทั้งหมด`
   },
-  {
-    "id": "02",
-    "code": "02",
-    "icon": "🎨",
-    "category": "Design System",
-    "title": "02. UI Consistency",
-    "subtitle": "ตรวจสอบความสม่ำเสมอของ Typography, Components และ CSS",
-    "promptText": "02 — 🎨 UI CONSISTENCY\nตรวจสอบความสม่ำเสมอของ UI ทั้งเว็บไซต์ โดยห้ามเปลี่ยนฟังก์ชันการทำงาน\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nสิ่งที่ต้องตรวจสอบ\n\n- Typography (Font Size, Weight, Line Height)\n- Heading, Subheading & Paragraph Hierarchy\n- Button States (Default, Hover, Active, Disabled, Loading)\n- Form Elements (Input, Select, Checkbox, Radio, Textarea)\n- Cards, Modals, Dialogs, Tables & Badges\n- Alert & Toast Notifications\n- Icon System & Sizing\n- Spacing System (Margin & Padding Consistency)\n- Border Radius, Shadow & Elevation Tokens\n- Color System, Palette & Contrast Ratio\n- Dark Mode / Light Mode Consistency\n- Loading, Empty & Error States\n\nตรวจสอบว่า Component ที่มีหน้าที่เหมือนกันใช้รูปแบบเดียวกันหรือไม่\nตรวจสอบ UI ที่มีหน้าตาคล้ายกันแต่ใช้ CSS หรือ Component คนละแบบโดยไม่จำเป็น\nตรวจสอบ Design Token และ Reusable Component ที่ควรนำกลับมาใช้\n\nข้อกำหนด\n\n- ห้ามเปลี่ยน Business Logic\n- ห้ามลบฟีเจอร์\n- ห้ามเปลี่ยน API Contract\n- ห้ามเปลี่ยน Database Schema\n- ห้ามเปลี่ยน UX โดยไม่มีเหตุผล\n- ห้ามเพิ่ม Library โดยไม่จำเป็น\n- หากพบปัญหา ให้แสดงปัญหาและเสนอแนวทางก่อนแก้"
+    {
+    id: "02",
+    code: "02",
+    icon: "🎨",
+    category: "Design System",
+    title: "02. UI Consistency",
+    subtitle: "ตรวจสอบความสม่ำเสมอของ Typography, Components และ CSS",
+    promptText: `02 — 🎨 UI CONSISTENCY
+ตรวจสอบความสม่ำเสมอของ UI ทั้งเว็บไซต์ โดยห้ามเปลี่ยนฟังก์ชันการทำงาน
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+สิ่งที่ต้องตรวจสอบ
+ 
+- Typography
+- Font Size
+- Font Weight
+- Heading
+- Button
+- Input
+- Select
+- Checkbox
+- Radio
+- Card
+- Modal
+- Dialog
+- Table
+- Badge
+- Alert
+- Toast
+- Icon
+- Spacing
+- Border Radius
+- Shadow
+- Color
+- Dark Mode
+- Light Mode
+- Loading State
+- Empty State
+- Error State
+ 
+ตรวจสอบว่า Component ที่มีหน้าที่เหมือนกันใช้รูปแบบเดียวกันหรือไม่
+ 
+ตรวจสอบ UI ที่มีหน้าตาคล้ายกันแต่ใช้ CSS หรือ Component คนละแบบโดยไม่จำเป็น
+ 
+ตรวจสอบ Design Token และ Reusable Component ที่ควรนำกลับมาใช้
+ 
+ข้อกำหนด
+ 
+- ห้ามเปลี่ยน Business Logic
+- ห้ามลบฟีเจอร์
+- ห้ามเปลี่ยน API
+- ห้ามเปลี่ยน Database
+- ห้ามเปลี่ยน UX โดยไม่มีเหตุผล
+- ห้ามเพิ่ม Library โดยไม่จำเป็น
+- หากพบปัญหา ให้แสดงปัญหาและเสนอแนวทางก่อนแก้`
   },
-  {
-    "id": "03",
-    "code": "03",
-    "icon": "🧭",
-    "category": "User Experience",
-    "title": "03. UX & User Flow",
-    "subtitle": "ตรวจสอบ User Flow, Navigation และการกู้คืนจากข้อผิดพลาด",
-    "promptText": "03 — 🧭 UX & USER FLOW\nตรวจสอบ User Experience (UX) ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic โดยไม่ได้รับอนุญาต\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nสิ่งที่ต้องตรวจสอบ\n\n- User Flow & Navigation Structure\n- จำนวนขั้นตอนในการทำงาน (Minimize Friction)\n- ความชัดเจนของ Button & Menu Labeling\n- Form Flow & Validation Feedback\n- Auth Flow (Login, Register, Password Reset, Logout)\n- Error Flow & Recovery Options\n- Loading, Empty & Success States\n- Confirmation & Cancel Actions\n- Back Navigation & Breadcrumbs\n- Search, Filter & Pagination UX\n- Mobile Experience & Touch Targets\n- First-time User Experience (Onboarding Clarity)\n\nจำลองการใช้งานในมุมมองของ User ใหม่ที่ไม่เคยใช้ระบบมาก่อน\n\nข้อกำหนด\n\n- ห้ามเปลี่ยน Business Logic\n- ห้ามลบ Feature\n- ห้ามเปลี่ยน API\n- ห้ามแก้ Database\n- เสนอปัญหาก่อนแก้\n- จัดลำดับความสำคัญ Critical / High / Medium / Low"
+    {
+    id: "03",
+    code: "03",
+    icon: "🧭",
+    category: "User Experience",
+    title: "03. UX & User Flow",
+    subtitle: "ตรวจสอบ User Flow, Navigation และการกู้คืนจากข้อผิดพลาด",
+    promptText: `03 — 🧭 UX
+ตรวจสอบ User Experience (UX) ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic โดยไม่ได้รับอนุญาต
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+สิ่งที่ต้องตรวจสอบ
+ 
+- User Flow
+- Navigation
+- จำนวนขั้นตอนในการทำงาน
+- ความชัดเจนของ Button
+- ความชัดเจนของ Menu
+- Form Flow
+- Login Flow
+- Register Flow
+- Logout Flow
+- Error Flow
+- Loading Flow
+- Empty State
+- Success State
+- Confirmation
+- Cancel Action
+- Back Navigation
+- Search
+- Filter
+- Pagination
+- Mobile UX
+- First-time User Experience
+ 
+ให้จำลองการใช้งานในมุมมองของ User ใหม่ที่ไม่เคยใช้ระบบมาก่อน
+ 
+ตรวจสอบว่า User สามารถตอบคำถามเหล่านี้ได้หรือไม่
+ 
+- ตอนนี้ฉันอยู่หน้าไหน?
+- ฉันควรทำอะไรต่อ?
+- ปุ่มนี้ทำอะไร?
+- ระบบกำลังทำอะไร?
+- ถ้าเกิด Error ฉันต้องทำอย่างไร?
+- งานที่ฉันทำสำเร็จหรือยัง?
+ 
+ข้อกำหนด
+ 
+- ห้ามเปลี่ยน Business Logic
+- ห้ามลบ Feature
+- ห้ามเปลี่ยน API
+- ห้ามแก้ Database
+- เสนอปัญหาก่อนแก้
+- ให้ระดับความสำคัญ Critical / High / Medium / Low`
   },
-  {
-    "id": "04",
-    "code": "04",
-    "icon": "📱",
-    "category": "Layout",
-    "title": "04. Responsive Design",
-    "subtitle": "ตรวจสอบการแสดงผลบนอุปกรณ์ทุกขนาด (320px ถึง 1440px+)",
-    "promptText": "04 — 📱 RESPONSIVE DESIGN & ACCESSIBILITY\nตรวจสอบ Responsive Design และ Accessibility ของเว็บไซต์ทั้งหมด โดยห้ามเปลี่ยนฟังก์ชันการทำงาน\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nResponsive Viewports\n\n- Mobile Small (320px)\n- Mobile Standard (375px - 414px)\n- Tablet (768px)\n- Laptop (1024px)\n- Desktop (1440px+)\n- Touch Targets & Overflow Handling\n\nAccessibility (a11y)\n\n- Semantic HTML Elements\n- Image Alt Text & Form Labels\n- Keyboard Navigation & Focus Indicators\n- Color Contrast & Screen Reader Compatibility\n\nข้อกำหนด\n\n- ห้ามเปลี่ยน Business Logic\n- ห้ามลบ Feature\n- ห้ามเปลี่ยน API / Database\n- ห้ามเพิ่ม Library โดยไม่จำเป็น\n- วิเคราะห์ก่อนแก้ และสรุปจุดที่แก้ไขทั้งหมด"
+    {
+    id: "04",
+    code: "04",
+    icon: "📱",
+    category: "Layout",
+    title: "04. Responsive Design",
+    subtitle: "ตรวจสอบการแสดงผลบนอุปกรณ์ทุกขนาด (320px ถึง 1440px+)",
+    promptText: `04 — 📱 RESPONSIVE + ACCESSIBILITY
+ตรวจสอบ Responsive Design และ Accessibility ของเว็บไซต์ทั้งหมด โดยห้ามเปลี่ยนฟังก์ชันการทำงาน
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+Responsive
+ 
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+- หน้าจอขนาดเล็ก
+- Landscape
+- Portrait
+- Navigation
+- Sidebar
+- Modal
+- Table
+- Form
+- Button
+- Card
+- Image
+- Video
+- Text Overflow
+- Horizontal Scroll
+ 
+ให้ตรวจสอบอย่างน้อย
+ 
+- 320px
+- 375px
+- 768px
+- 1024px
+- 1440px
+ 
+Accessibility
+ 
+- Semantic HTML
+- alt ของรูปภาพ
+- Label ของ Form
+- Keyboard Navigation
+- Focus State
+- Focus Order
+- Button Accessibility
+- Contrast
+- Font Size
+- Screen Reader
+- ARIA ที่จำเป็น
+- Error Message
+- Form Validation
+ 
+ข้อกำหนด
+ 
+- ห้ามเปลี่ยน Business Logic
+- ห้ามลบ Feature
+- ห้ามเปลี่ยน API
+- ห้ามเปลี่ยน Database
+- ห้ามเพิ่ม Library โดยไม่จำเป็น
+- วิเคราะห์ก่อนแก้
+- หลังแก้ต้องสรุปว่าแต่ละจุดแก้อะไร`
   },
-  {
-    "id": "05",
-    "code": "05",
-    "icon": "⚡",
-    "category": "Performance",
-    "title": "05. Performance",
-    "subtitle": "ตรวจสอบและปรับปรุงความเร็วในการโหลดทั้ง Frontend, Backend และ Database",
-    "promptText": "05 — ⚡ PERFORMANCE OPTIMIZATION\nตรวจสอบ Performance ของเว็บไซต์ทั้งหมด และปรับปรุงความเร็วในการโหลด โดยห้ามเปลี่ยนหน้าตา ฟังก์ชันการทำงาน หรือ Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nFrontend Performance\n\n- Core Web Vitals (LCP, FID, CLS, INP)\n- Bundle Size & Code Splitting\n- Dynamic Imports & Lazy Loading\n- Image & Asset Optimization\n- React Re-render Bottlenecks\n\nBackend & Database\n\n- API Response Times & Slow Endpoints\n- N+1 Queries & Database Indexing\n- Connection Pooling & Payload Minimization\n- Redis Caching Candidates & TTL Planning\n\nข้อกำหนด\n\n- ห้ามเปลี่ยน UI / UX / Business Logic\n- ห้ามลบ Feature\n- ต้องเสนอแนวทางแก้ก่อนลงมือ\n- หลังแก้ให้สรุป Performance ก่อนและหลัง"
+    {
+    id: "05",
+    code: "05",
+    icon: "⚡",
+    category: "Performance",
+    title: "05. Performance",
+    subtitle: "ตรวจสอบและปรับปรุงความเร็วในการโหลดทั้ง Frontend, Backend และ Database",
+    promptText: `05 — ⚡ PERFORMANCE
+อันนี้คือ Prompt ที่คุณทำไว้ ผมปรับให้สมบูรณ์ขึ้น
+ 
+ตรวจสอบ Performance ของเว็บไซต์ทั้งหมด และปรับปรุงความเร็วในการโหลด โดยห้ามเปลี่ยนหน้าตา ฟังก์ชันการทำงาน หรือ Business Logic
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+Frontend
+ 
+- วิเคราะห์ Page Load Time
+- วิเคราะห์ Core Web Vitals
+- ตรวจสอบ JavaScript Bundle Size
+- ตรวจสอบ Network Requests
+- ตรวจสอบ API Requests ที่ซ้ำ
+- ตรวจสอบ React Re-render
+- ตรวจสอบ Component ที่ Re-render บ่อย
+- ตรวจสอบ Client Components
+- ตรวจสอบ Server Components
+- ตรวจสอบ Dynamic Import
+- ตรวจสอบ Code Splitting
+- ตรวจสอบ Lazy Loading
+- ตรวจสอบ Image Optimization
+- ตรวจสอบ next/image
+- ตรวจสอบ Font Loading
+- ตรวจสอบ Video Loading
+- ตรวจสอบ Hydration
+- ตรวจสอบ Prefetch
+- ตรวจสอบ Preload
+- ตรวจสอบ JavaScript ที่ไม่จำเป็น
+ 
+Backend
+ 
+- ตรวจสอบ API Response Time
+- ตรวจสอบ Slow API
+- ตรวจสอบ Database Query
+- ตรวจสอบ N+1 Query
+- ตรวจสอบ Authentication
+- ตรวจสอบ Middleware
+- ตรวจสอบ Guard
+- ตรวจสอบ Interceptor
+- ตรวจสอบ Logging
+- ตรวจสอบ Memory
+- ตรวจสอบ CPU
+ 
+Database
+ 
+- ตรวจสอบ Slow Query
+- ตรวจสอบ Index
+- ตรวจสอบ Query ซ้ำ
+- ตรวจสอบ Pagination
+- ตรวจสอบ JOIN
+- ตรวจสอบ SELECT *
+- ตรวจสอบ Connection Pool
+ 
+Redis
+ 
+- วิเคราะห์ว่าจุดใดควรใช้ Redis
+- วิเคราะห์ Cache ที่เหมาะสม
+- วิเคราะห์ Cache TTL
+- วิเคราะห์ Cache Invalidation
+- วิเคราะห์ Rate Limiting
+- วิเคราะห์ Queue
+- ห้ามติดตั้ง Redis หากยังไม่มีเหตุผลที่ชัดเจน
+ 
+ข้อกำหนด
+ 
+- ห้ามเปลี่ยน UI
+- ห้ามเปลี่ยน UX
+- ห้ามเปลี่ยน Business Logic
+- ห้ามลบ Feature
+- ห้ามเพิ่ม Library โดยไม่อธิบายเหตุผล
+- ต้องแสดงปัญหาและสาเหตุก่อน
+- ต้องเสนอแนวทางแก้ก่อนลงมือ
+- หลังแก้ให้สรุป Performance ก่อนและหลัง หากสามารถวัดได้`
   },
-  {
-    "id": "06",
-    "code": "06",
-    "icon": "🔐",
-    "category": "Security",
-    "title": "06. Security",
-    "subtitle": "ตรวจสอบ Authentication, Authorization, API Security, Injection และ Secrets",
-    "promptText": "06 — 🔐 SECURITY AUDIT\nตรวจสอบ Security ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic หรือ Authentication Flow โดยไม่ได้รับอนุญาต\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nสิ่งที่ต้องตรวจสอบ\n\n- Authentication & Token Handling (JWT, Refresh, Cookie Flags)\n- Authorization (RBAC, Ownership Check, BOLA/IDOR)\n- API Security (CORS, Rate Limiting, Input DTO Validation)\n- Injection Vulnerabilities (SQLi, XSS, Path Traversal)\n- Secret Leaks & Environment Variables Security (.env)\n- Supabase Row Level Security (RLS) Policies\n\nข้อกำหนด\n\n- ห้ามลด Security เพื่อแก้ปัญหาอื่น\n- ห้าม Hardcode Secret\n- วิเคราะห์ระดับความเสี่ยง Critical / High / Medium / Low\n- ต้องเสนอวิธีแก้ก่อนลงมือ"
+    {
+    id: "06",
+    code: "06",
+    icon: "🔐",
+    category: "Security",
+    title: "06. Security",
+    subtitle: "ตรวจสอบ Authentication, Authorization, API Security, Injection และ Secrets",
+    promptText: `06 — 🔐 SECURITY
+อันนี้ผมให้ความสำคัญสูงมาก
+ตรวจสอบ Security ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic หรือ Authentication Flow โดยไม่ได้รับอนุญาต
+ 
+เริ่มจากการตรวจสอบและวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+Authentication
+ 
+- Login
+- Register
+- Logout
+- Password Hashing
+- JWT
+- Access Token
+- Refresh Token
+- Session
+- Cookie
+- Token Expiration
+- OAuth
+- Google Login
+- GitHub Login
+- Password Reset
+- Email Verification
+ 
+Authorization
+ 
+- RBAC
+- Permission
+- Role
+- Resource Authorization
+- ตรวจสอบว่าผู้ใช้สามารถเข้าถึงข้อมูลของ User คนอื่นได้หรือไม่
+ 
+API Security
+ 
+- CORS
+- Rate Limiting
+- Input Validation
+- DTO Validation
+- API Authorization
+- Mass Assignment
+- Sensitive Data Exposure
+- Error Response
+- HTTP Security Headers
+ 
+Injection
+ 
+- SQL Injection
+- NoSQL Injection
+- XSS
+- Command Injection
+- Path Traversal
+ 
+File Upload
+ 
+- File Type
+- File Size
+- File Name
+- Storage Permission
+- Malicious File
+- Public URL
+ 
+Secrets
+ 
+- ตรวจสอบ .env
+- ตรวจสอบ API Key
+- ตรวจสอบ Secret
+- ตรวจสอบ Private Key
+- ตรวจสอบข้อมูลลับที่อาจหลุดขึ้น Git
+- ตรวจสอบ Client-side Exposure
+ 
+Supabase
+ 
+- ตรวจสอบ Row Level Security (RLS)
+- ตรวจสอบ Policy
+- ตรวจสอบ Table Permission
+- ตรวจสอบ Storage Policy
+- ตรวจสอบข้อมูลที่ Client สามารถเข้าถึงได้
+ 
+ข้อกำหนด
+ 
+- ห้ามลด Security เพื่อแก้ปัญหาอื่น
+- ห้ามปิด Authentication
+- ห้ามปิด RLS
+- ห้าม Hardcode Secret
+- ห้ามเปลี่ยน Business Logic
+- วิเคราะห์ระดับความเสี่ยง Critical / High / Medium / Low
+- อธิบายช่องโหว่และผลกระทบก่อนแก้
+- ต้องเสนอวิธีแก้ก่อนลงมือ`
   },
-  {
-    "id": "07",
-    "code": "07",
-    "icon": "🗄️",
-    "category": "Database",
-    "title": "07. Database",
-    "subtitle": "ตรวจสอบ Database Architecture, Query Performance, Data Integrity และ PostgreSQL/Supabase",
-    "promptText": "07 — 🗄️ DATABASE ARCHITECTURE & QUERY PERFORMANCE\nตรวจสอบ Database Architecture และ Query Performance ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน API Contract หรือ Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nสิ่งที่ต้องตรวจสอบ\n\n- Schema Normalization & Column Types\n- Foreign Keys & Data Constraints\n- Indexing Strategy (B-Tree, Composite Indexes)\n- Query Performance & N+1 Problem\n- RLS Policies & Database Connection Pooling\n\nข้อกำหนด\n\n- ห้ามทำลายข้อมูล\n- Migration ต้องปลอดภัย\n- ต้องอธิบายผลดีและผลเสียก่อนเพิ่ม Index"
+    {
+    id: "07",
+    code: "07",
+    icon: "🗄️",
+    category: "Database",
+    title: "07. Database",
+    subtitle: "ตรวจสอบ Database Architecture, Query Performance, Data Integrity และ PostgreSQL/Supabase",
+    promptText: `07 — 🗄️ DATABASE
+ตรวจสอบ Database Architecture และ Query Performance ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน API Contract หรือ Business Logic
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+Schema
+ 
+- ตรวจสอบ Table
+- ตรวจสอบ Column
+- ตรวจสอบ Data Type
+- Primary Key
+- Foreign Key
+- Unique Constraint
+- NOT NULL
+- Default Value
+- Relationship
+- Normalization
+- Denormalization
+ 
+Performance
+ 
+- Slow Query
+- Index
+- Composite Index
+- Query ซ้ำ
+- N+1 Query
+- SELECT *
+- JOIN
+- ORDER BY
+- WHERE
+- GROUP BY
+- Pagination
+- Search
+- Filter
+ 
+Data Integrity
+ 
+- Duplicate Data
+- Orphan Data
+- Constraint
+- Transaction
+- Race Condition
+- Concurrent Update
+ 
+Supabase/PostgreSQL
+ 
+- RLS
+- Policy
+- Index
+- Migration
+- Function
+- Trigger
+- Connection Pool
+- Query Plan
+ 
+ตรวจสอบ Query ที่ถูกเรียกบ่อยและระบุว่า Query ใดเป็น Candidate สำหรับ Cache
+ 
+ข้อกำหนด
+ 
+- ห้ามทำลายข้อมูล
+- ห้ามแก้ Schema โดยไม่อธิบายผลกระทบ
+- ห้ามเปลี่ยน API Contract
+- ห้ามเปลี่ยน Business Logic
+- Migration ต้องปลอดภัย
+- ก่อนเพิ่ม Index ต้องอธิบายผลดีและผลเสีย`
   },
-  {
-    "id": "08",
-    "code": "08",
-    "icon": "🧱",
-    "category": "Architecture",
-    "title": "08. Code Quality & Architecture",
-    "subtitle": "ตรวจสอบ Code Quality, Folder Structure, SOLID, DRY, NestJS และ Next.js Architecture",
-    "promptText": "08 — 🧱 CODE QUALITY & SOFTWARE ARCHITECTURE\nตรวจสอบ Code Quality และ Software Architecture ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยนพฤติกรรมของระบบ\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nสิ่งที่ต้องตรวจสอบ\n\n- Folder Structure & Architectural Separation\n- SOLID Principles & DRY Violations\n- Component & Service Sizing\n- NestJS / Next.js Framework Best Practices\n- Type Safety & Removal of 'any' Types\n\nข้อกำหนด\n\n- ห้าม Refactor เพียงเพราะ \"สวยกว่า\"\n- ต้องมีเหตุผลทาง Maintainability หรือ Performance\n- ระบุ Risk ของ Refactor ทุกครั้ง"
+    {
+    id: "08",
+    code: "08",
+    icon: "🧱",
+    category: "Architecture",
+    title: "08. Code Quality & Architecture",
+    subtitle: "ตรวจสอบ Code Quality, Folder Structure, SOLID, DRY, NestJS และ Next.js Architecture",
+    promptText: `08 — 🧱 CODE QUALITY / ARCHITECTURE
+ตรวจสอบ Code Quality และ Software Architecture ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยนพฤติกรรมของระบบ
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+ตรวจสอบ
+ 
+- Folder Structure
+- Naming
+- Separation of Concerns
+- SOLID
+- DRY
+- Single Responsibility
+- Reusable Component
+- Duplicate Code
+- Dead Code
+- Unused Import
+- Unused Variable
+- Function ที่ยาวเกินไป
+- Component ที่ใหญ่เกินไป
+- TypeScript any
+- Magic Number
+- Magic String
+- Error Handling
+- Dependency
+- Circular Dependency
+- Coupling
+- Cohesion
+- Abstraction
+- DTO
+- Service
+- Controller
+- Repository
+- Module
+- Dependency Injection
+ 
+NestJS
+ 
+- Module Structure
+- Controller
+- Service
+- DTO
+- Guard
+- Interceptor
+- Pipe
+- Exception Filter
+- Dependency Injection
+ 
+Next.js
+ 
+- Server Component
+- Client Component
+- Component Boundary
+- Data Fetching
+- State Management
+- Shared Component
+ 
+ข้อกำหนด
+ 
+- ห้ามเปลี่ยน Business Logic
+- ห้ามเปลี่ยน API Contract
+- ห้ามเปลี่ยน Database
+- ห้าม Refactor เพียงเพราะ "สวยกว่า"
+- ต้องมีเหตุผลทาง Maintainability หรือ Performance
+- วิเคราะห์ก่อนแก้
+- ระบุ Risk ของ Refactor ทุกครั้ง`
   },
-  {
-    "id": "09",
-    "code": "09",
-    "icon": "🧪",
-    "category": "Testing",
-    "title": "09. Testing & Quality Assurance",
-    "subtitle": "ตรวจสอบ Test Coverage, Unit/Integration/E2E Test และ Edge Cases",
-    "promptText": "09 — 🧪 TESTING & QA REVIEW\nตรวจสอบ Test Coverage และความสามารถในการทดสอบของโปรเจกต์ โดยห้ามเปลี่ยน Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามเขียน Test ทันที\n\nสิ่งที่ต้องตรวจสอบ\n\n- Unit Test Coverage (Core Domain & Utils)\n- Integration Test Coverage (API & Database Boundaries)\n- E2E Test Scenarios (Critical User Flows)\n- Edge Cases, Boundary Values & Failure Testing\n\nข้อกำหนด\n\n- ห้ามแก้ Production Logic เพียงเพื่อให้ Test ผ่าน\n- Test ต้องตรวจสอบพฤติกรรมจริง"
+    {
+    id: "09",
+    code: "09",
+    icon: "🧪",
+    category: "Testing",
+    title: "09. Testing & Quality Assurance",
+    subtitle: "ตรวจสอบ Test Coverage, Unit/Integration/E2E Test และ Edge Cases",
+    promptText: `09 — 🧪 TESTING
+ตรวจสอบ Test Coverage และความสามารถในการทดสอบของโปรเจกต์ โดยห้ามเปลี่ยน Business Logic
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามเขียน Test ทันที
+ 
+ตรวจสอบ
+ 
+Unit Test
+ 
+- Business Logic
+- Utility
+- Function
+- Validation
+- Calculation
+ 
+Integration Test
+ 
+- API
+- Database
+- Authentication
+- Authorization
+- External Service
+ 
+E2E Test
+ 
+- Login
+- Register
+- Logout
+- Main User Flow
+- Critical Feature
+- Error Flow
+ 
+ตรวจสอบ
+ 
+- Test Coverage
+- Edge Case
+- Error Case
+- Happy Path
+- Boundary Case
+- Authentication Case
+- Authorization Case
+- Concurrent Case
+- Timeout Case
+ 
+ระบุ Critical User Flow ที่ควรมี E2E Test
+ 
+ข้อกำหนด
+ 
+- ห้ามแก้ Production Logic เพียงเพื่อให้ Test ผ่าน
+- ห้าม Mock ทุกอย่างโดยไม่จำเป็น
+- Test ต้องตรวจสอบพฤติกรรมจริง
+- หากพบ Bug จาก Test ให้รายงานก่อนแก้
+- แสดง Coverage ก่อนและหลังหากสามารถวัดได้`
   },
-  {
-    "id": "10",
-    "code": "10",
-    "icon": "🛑",
-    "category": "Error Handling",
-    "title": "10. Error Handling",
-    "subtitle": "ตรวจสอบ Error Handling ทั้ง Frontend/Backend, Fallback UI, Logging และ Edge Cases",
-    "promptText": "10 — 🛑 ERROR HANDLING & RESILIENCE\nตรวจสอบ Error Handling ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nสิ่งที่ต้องตรวจสอบ\n\n- Frontend Error Boundaries & Fallback States\n- Consistent API Error Response Format\n- Graceful Degradation & Network Failure Recovery\n- Protection against Sensitive Data Leaks in Stack Traces\n\nข้อกำหนด\n\n- ห้ามซ่อน Error\n- ห้ามใช้ 200 OK กับ Error โดยไม่มีเหตุผล\n- วิเคราะห์ก่อนแก้"
+    {
+    id: "10",
+    code: "10",
+    icon: "🛑",
+    category: "Error Handling",
+    title: "10. Error Handling",
+    subtitle: "ตรวจสอบ Error Handling ทั้ง Frontend/Backend, Fallback UI, Logging และ Edge Cases",
+    promptText: `10 — 🛑 ERROR HANDLING
+ตรวจสอบ Error Handling ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+ตรวจสอบ
+ 
+- API Error
+- Database Error
+- Authentication Error
+- Authorization Error
+- Validation Error
+- Network Error
+- Timeout
+- External API Error
+- File Upload Error
+- Payment Error หากมี
+- Third-party Service Error
+- Redis Error
+- Queue Error
+ 
+Frontend
+ 
+- Loading State
+- Error State
+- Empty State
+- Retry
+- Toast
+- Dialog
+- Error Message
+- Fallback UI
+ 
+Backend
+ 
+- HTTP Status Code
+- Exception Handling
+- Global Exception Filter
+- Logging
+- Sensitive Error Information
+- Error Response Format
+ 
+ตรวจสอบว่าระบบไม่แสดง
+ 
+- Stack Trace
+- Database Error
+- Password
+- Token
+- API Key
+- Internal Architecture
+ 
+ให้ทดสอบกรณี
+ 
+- Internet หลุด
+- API ล่ม
+- Database ล่ม
+- Token หมดอายุ
+- Request Timeout
+- User กดปุ่มซ้ำ
+- Invalid Input
+ 
+ข้อกำหนด
+ 
+- ห้ามซ่อน Error
+- ห้ามใช้ 200 OK กับ Error โดยไม่มีเหตุผล
+- ห้ามเปิดเผยข้อมูล Sensitive
+- วิเคราะห์ก่อนแก้`
   },
   {
     "id": "11",
