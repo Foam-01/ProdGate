@@ -1,31 +1,381 @@
 // Part 2: Review Cards 21 to 41
 export const MASTER_CARDS_PART2 = [
-  {
-    "id": "21",
-    "code": "21",
-    "icon": "📦",
-    "category": "Dependencies",
-    "title": "21. Dependency / Package Review",
-    "subtitle": "ตรวจสอบ Inventory, Security, Bundle Size, Necessity และ Versioning",
-    "promptText": "21 — 📦 DEPENDENCY & PACKAGE AUDIT\nตรวจสอบ Inventory, Security, Bundle Size, Necessity และ Versioning\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ:\n- Unused or Redundant npm Packages\n- Known Vulnerabilities & License Compliance\n- Heavy Package Alternatives (Tree-shaking & Light Libraries)"
+    {
+    id: "21",
+    code: "21",
+    icon: "📦",
+    category: "Dependencies",
+    title: "21. Dependency / Package Review",
+    subtitle: "ตรวจสอบ Inventory, Security, Bundle Size, Necessity และ Versioning",
+    promptText: `21. 📦 Dependency / Package Review
+ตรวจสอบ Dependency และ Package ทั้งหมดของโปรเจกต์
+โดยห้ามเพิ่มหรือลบ Package โดยไม่ได้รับอนุญาต
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+
+==================================================
+1. Package Inventory
+==================================================
+
+ตรวจสอบ
+
+- Package ทั้งหมด
+- Production Dependency
+- Development Dependency
+- Package ที่ไม่ได้ใช้งาน
+- Package ที่ซ้ำซ้อน
+- Package ที่ทำหน้าที่คล้ายกัน
+
+==================================================
+2. Security
+==================================================
+
+ตรวจสอบ
+
+- Known Vulnerability
+- Outdated Package
+- Deprecated Package
+- Unmaintained Package
+- Supply Chain Risk
+
+==================================================
+3. Bundle / Performance
+==================================================
+
+ตรวจสอบ
+
+- Package ขนาดใหญ่
+- Package ที่เพิ่ม Bundle Size
+- Package ที่โหลดบน Client โดยไม่จำเป็น
+- Tree Shaking
+- Dynamic Import
+
+==================================================
+4. Necessity
+==================================================
+
+สำหรับ Package สำคัญให้วิเคราะห์
+
+- ใช้ทำอะไร
+- จำเป็นหรือไม่
+- มี Native API ที่ทำแทนได้หรือไม่
+- มี Dependency ซ้ำหรือไม่
+- มีทางเลือกที่เบากว่าหรือไม่
+
+==================================================
+5. Version
+==================================================
+
+ตรวจสอบ
+
+- Version
+- Lockfile
+- Compatibility
+- Breaking Change
+- Major Version
+- Minor Version
+- Patch Version
+
+ห้าม Upgrade Package แบบสุ่ม
+
+==================================================
+ข้อกำหนด
+
+- ห้ามเพิ่ม Package โดยไม่อธิบาย
+- ห้ามลบ Package ที่ยังถูกใช้งาน
+- ห้าม Upgrade Major Version โดยไม่วิเคราะห์
+- ต้องตรวจสอบผลกระทบ
+- ต้องเสนอทางเลือกก่อนแก้
+- ต้องรอการอนุมัติ`
   },
-  {
-    "id": "22",
-    "code": "22",
-    "icon": "💰",
-    "category": "Efficiency",
-    "title": "22. Cost / Resource Efficiency Review",
-    "subtitle": "ตรวจสอบ CPU, Memory, Database, Storage, Network และ Third-party Costs",
-    "promptText": "22 — 💰 COST & RESOURCE EFFICIENCY REVIEW\nตรวจสอบ CPU, Memory, Database, Storage, Network และ Third-party Costs\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ:\n- Unnecessary Database Reads/Writes\n- Heavy Asset Hosting Costs & CDN Caching Opportunities\n- Third-party API Call Optimization"
+    {
+    id: "22",
+    code: "22",
+    icon: "💰",
+    category: "Efficiency",
+    title: "22. Cost / Resource Efficiency Review",
+    subtitle: "ตรวจสอบ CPU, Memory, Database, Storage, Network และ Third-party Costs",
+    promptText: `22. 💰 Cost / Resource Efficiency Review
+ตรวจสอบ Cost และ Resource Efficiency ของโปรเจกต์ทั้งหมด
+โดยห้ามเปลี่ยน Business Logic หรือ UX
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามเปลี่ยน Infrastructure ทันที
+
+เป้าหมาย
+
+ตรวจสอบว่าระบบใช้
+
+- CPU
+- Memory
+- Database
+- Storage
+- Bandwidth
+- API
+- Third-party Service
+
+อย่างคุ้มค่าหรือไม่
+
+==================================================
+1. Infrastructure
+==================================================
+
+ตรวจสอบ
+
+- Server
+- CPU
+- Memory
+- Storage
+- Bandwidth
+- CDN
+
+==================================================
+2. Database
+==================================================
+
+ตรวจสอบ
+
+- Query จำนวนมาก
+- Query ซ้ำ
+- Connection
+- Storage
+- Database Size
+- Backup
+- Index
+
+==================================================
+3. Storage
+==================================================
+
+ตรวจสอบ
+
+- Image
+- Video
+- File
+- Storage Size
+- Duplicate File
+- File Compression
+- File Retention
+
+==================================================
+4. Network
+==================================================
+
+ตรวจสอบ
+
+- API Response Size
+- Image Size
+- Video
+- JavaScript
+- CSS
+- Font
+- Duplicate Request
+
+==================================================
+5. Third-party Service
+==================================================
+
+ตรวจสอบ
+
+- API Call
+- AI API
+- Email
+- Payment
+- OAuth
+- Maps
+- Analytics
+- Monitoring
+
+==================================================
+6. Caching
+==================================================
+
+วิเคราะห์ว่า
+
+- Redis
+- CDN
+- Browser Cache
+- API Cache
+
+สามารถลด Cost ได้หรือไม่
+
+แต่ห้ามเพิ่ม Cache
+หากทำให้ข้อมูลผิดหรือ Stale Data โดยไม่มีวิธีจัดการ
+
+==================================================
+ข้อกำหนด
+
+- ห้ามเพิ่ม Infrastructure เพียงเพราะคิดว่า "น่าจะเร็วขึ้น"
+- ต้องประเมิน Cost / Benefit
+- ต้องระบุว่าจุดใดมีค่าใช้จ่ายสูง
+- ต้องเสนอทางเลือก
+- ต้องรอการอนุมัติ`
   },
-  {
-    "id": "23",
-    "code": "23",
-    "icon": "🏢",
-    "category": "Business Logic",
-    "title": "23. Business Logic Review",
-    "subtitle": "ตรวจสอบ Business Rules, Workflows, Client Trust, Race Conditions & State Transitions",
-    "promptText": "23 — 🏢 BUSINESS LOGIC & WORKFLOW INTEGRITY\nตรวจสอบ Business Rules, Workflows, Client Trust, Race Conditions & State Transitions\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ:\n- Backend Enforcement of Business Rules (Never Trust Client)\n- State Transition Guards (e.g., Pending → Paid → Shipped)\n- Idempotency in Transactions & Payment Handlings"
+    {
+    id: "23",
+    code: "23",
+    icon: "🏢",
+    category: "Business Logic",
+    title: "23. Business Logic Review",
+    subtitle: "ตรวจสอบ Business Rules, Workflows, Client Trust, Race Conditions & State Transitions",
+    promptText: `23. 🏢 Business Logic Review
+ตรวจสอบ Business Logic ของโปรเจกต์ทั้งหมด
+โดยห้ามเปลี่ยน Business Rule หรือพฤติกรรมของระบบ
+โดยไม่ได้รับอนุญาต
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+
+เป้าหมาย
+
+ตรวจสอบว่าระบบทำงานตาม Business Requirement จริงหรือไม่
+และตรวจสอบว่าผู้ใช้สามารถใช้ระบบผิดวิธี
+เพื่อให้ได้ผลลัพธ์ที่ไม่ควรได้รับหรือไม่
+
+==================================================
+1. Business Rule
+==================================================
+
+ตรวจสอบ
+
+- Rule
+- Condition
+- Permission
+- Status
+- State
+- Calculation
+- Validation
+- Workflow
+
+==================================================
+2. Workflow
+==================================================
+
+ตรวจสอบ
+
+Step 1
+↓
+Step 2
+↓
+Step 3
+↓
+Complete
+
+ตรวจสอบว่า User สามารถ
+
+- ข้าม Step
+- ย้อน Step
+- ทำ Step ซ้ำ
+- ทำ Step พร้อมกัน
+- เรียก API ขั้นต่อไปโดยตรง
+
+ได้หรือไม่
+
+==================================================
+3. Duplicate Action
+==================================================
+
+ตรวจสอบ
+
+- Submit ซ้ำ
+- Payment ซ้ำ
+- Reward ซ้ำ
+- Coupon ซ้ำ
+- Create ซ้ำ
+- Delete ซ้ำ
+- Update ซ้ำ
+
+ตรวจสอบ Idempotency ตามความเหมาะสม
+
+==================================================
+4. Client Trust
+==================================================
+
+ตรวจสอบว่าระบบเชื่อข้อมูลจาก Frontend
+ในส่วนที่ไม่ควรเชื่อหรือไม่
+
+ตัวอย่าง
+
+- Price
+- Role
+- User ID
+- Permission
+- Status
+- Balance
+- Discount
+- Reward
+
+ข้อมูลสำคัญต้องได้รับการตรวจสอบที่ Backend
+
+==================================================
+5. Concurrent Action
+==================================================
+
+ตรวจสอบกรณี
+
+User A
+↓
+Request A
+
+พร้อมกับ
+
+Request B
+
+ตรวจสอบ
+
+- Race Condition
+- Transaction
+- Lock
+- Atomic Operation
+- Duplicate Operation
+
+==================================================
+6. State Transition
+==================================================
+
+ตรวจสอบว่า Status สามารถเปลี่ยนได้อย่างถูกต้องหรือไม่
+
+ตัวอย่าง
+
+Pending
+↓
+Processing
+↓
+Success
+
+ตรวจสอบว่า User สามารถทำ
+
+Pending
+↓
+Success
+
+โดยข้าม Processing ได้หรือไม่
+
+==================================================
+7. Authorization + Business Logic
+==================================================
+
+ตรวจสอบว่า
+
+User ธรรมดา
+ไม่สามารถทำ Action
+ที่ควรเป็นของ Admin
+
+และตรวจสอบว่า
+
+User สามารถเข้าถึง Resource
+ของ User อื่นได้หรือไม่
+
+==================================================
+ข้อกำหนด
+
+- ห้ามเปลี่ยน Business Rule
+- ห้ามเปลี่ยน UX
+- ห้ามเปลี่ยน API Contract
+- ห้ามแก้ Logic โดยไม่ได้รับอนุญาต
+- หากพบสิ่งที่คิดว่าเป็น Bug ให้แสดง Evidence
+- ต้องอธิบาย Expected Behavior กับ Actual Behavior
+- ต้องระบุ Impact
+- ต้องเสนอวิธีแก้
+- ต้องรอการอนุมัติ`
   },
   {
     "id": "24",

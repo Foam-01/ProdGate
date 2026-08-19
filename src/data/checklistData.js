@@ -1243,50 +1243,736 @@ User A → พยายามเข้าถึง → ข้อมูล User B
  
 จัดลำดับ Critical / High / Medium / Low / Informational พร้อม Root Cause และเสนอวิธีแก้ก่อนลงมือ`
   },
-  {
-    "id": "16",
-    "code": "16",
-    "icon": "🧩",
-    "category": "Maintainability",
-    "title": "16. Maintainability Review",
-    "subtitle": "ตรวจสอบว่าโค้ดและโปรเจกต์ดูแลต่อในอนาคตได้ง่ายหรือไม่",
-    "promptText": "16 — 🧩 MAINTAINABILITY REVIEW\nตรวจสอบว่าโปรเจกต์สามารถดูแล แก้ไข และพัฒนาต่อได้ง่ายหรือไม่ โดยห้ามเปลี่ยน Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\nสิ่งที่ต้องตรวจสอบ:\n- Code Readability & Naming Conventions\n- Function & Component Sizing (Single Responsibility)\n- Code Duplication & Refactoring Candidates\n- Hardcoded Values & Magic Numbers Replacement\n- Technical Debt & Maintenance Risk Assessment\n\nข้อกำหนด:\n- ห้าม Refactor เพียงเพราะความชอบส่วนตัว\n- ต้องอธิบายความคุ้มค่าด้าน Maintainability ก่อนแก้"
+    {
+    id: "16",
+    code: "16",
+    icon: "🧩",
+    category: "Maintainability",
+    title: "16. Maintainability Review",
+    subtitle: "ตรวจสอบว่าโค้ดและโปรเจกต์ดูแลต่อในอนาคตได้ง่ายหรือไม่",
+    promptText: `16. 🧩 Maintainability Review
+เป้าหมาย: ตรวจสอบว่าโค้ดและโปรเจกต์ดูแลต่อในอนาคตได้ง่ายหรือไม่
+ตรวจสอบ Maintainability ของโปรเจกต์ทั้งหมด
+โดยห้ามเปลี่ยน Business Logic หรือพฤติกรรมของระบบ
+โดยไม่ได้รับอนุญาต
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+
+เป้าหมาย
+
+ตรวจสอบว่าโปรเจกต์สามารถดูแล แก้ไข และพัฒนาต่อได้ง่ายหรือไม่
+โดยเฉพาะเมื่อมี Developer คนอื่นเข้ามารับช่วงต่อ
+
+ไม่ใช่ตรวจเพียงว่า "โค้ดทำงานได้หรือไม่"
+
+==================================================
+1. Code Readability
+==================================================
+
+ตรวจสอบ
+
+- Code อ่านเข้าใจง่ายหรือไม่
+- Naming ของ Variable
+- Naming ของ Function
+- Naming ของ Component
+- Naming ของ Class
+- Naming ของ Method
+- Naming ของ File
+- Naming ของ Folder
+- Function ที่ซับซ้อนเกินไป
+- Conditional ที่อ่านยาก
+- Nested Code ที่ลึกเกินไป
+- Comment ที่ไม่จำเป็น
+- Comment ที่ไม่ตรงกับ Code
+
+ตรวจสอบว่า Developer คนอื่นสามารถอ่าน Code
+และเข้าใจได้โดยไม่ต้องถามคนเขียนหรือไม่
+
+==================================================
+2. Function / Method
+==================================================
+
+ตรวจสอบ
+
+- Function ที่ยาวเกินไป
+- Function ที่ทำหลายหน้าที่
+- Function ที่มี Parameter มากเกินไป
+- Function ที่มี Nested Condition มากเกินไป
+- Function ที่มี Side Effect
+- Function ที่ควรแยกออกเป็น Function ย่อย
+
+ตรวจสอบหลัก Single Responsibility
+
+หนึ่ง Function ควรมีหน้าที่หลักที่ชัดเจน
+
+==================================================
+3. Component
+==================================================
+
+สำหรับ Frontend ตรวจสอบ
+
+- Component ที่ใหญ่เกินไป
+- Component ที่ทำหลายหน้าที่
+- Component ที่มี Logic มากเกินไป
+- Component ที่ควรแยกเป็น Component ย่อย
+- Component ที่ใช้ซ้ำได้แต่ไม่ได้ทำเป็น Reusable Component
+- Component ที่มี Props มากเกินไป
+- Component ที่มี State มากเกินไป
+
+ห้ามแยก Component เพียงเพื่อให้จำนวนไฟล์เพิ่มขึ้น
+ต้องมีเหตุผลด้าน Maintainability หรือ Reusability
+
+==================================================
+4. Code Duplication
+==================================================
+
+ตรวจสอบ
+
+- Code ที่เขียนซ้ำ
+- Function ที่ทำงานเหมือนกัน
+- Validation ที่ซ้ำ
+- API Logic ที่ซ้ำ
+- UI Logic ที่ซ้ำ
+- Database Query ที่ซ้ำ
+- Utility ที่ซ้ำ
+
+หากพบ Code ซ้ำ
+
+ให้วิเคราะห์ก่อนว่า
+
+- ควรทำเป็น Shared Function หรือไม่
+- ควรทำเป็น Utility หรือไม่
+- ควรทำเป็น Component หรือไม่
+- หรือการแยกออกจะทำให้ Code ซับซ้อนกว่าเดิม
+
+อย่า Refactor Code ซ้ำทุกกรณีโดยอัตโนมัติ
+
+==================================================
+5. Folder Structure
+==================================================
+
+ตรวจสอบ
+
+- Folder Structure
+- Feature Structure
+- Module Structure
+- Shared Folder
+- Component Folder
+- Service Folder
+- Utility Folder
+- DTO
+- Types
+- Hooks
+- Repository
+
+ตรวจสอบว่าไฟล์ถูกจัดอยู่ในตำแหน่งที่เหมาะสมหรือไม่
+
+==================================================
+6. Architecture
+==================================================
+
+ตรวจสอบ
+
+- Separation of Concerns
+- Single Responsibility
+- Dependency Direction
+- Coupling
+- Cohesion
+- Abstraction
+- Reusability
+- Modularity
+
+ตรวจสอบว่า
+
+UI
+ไม่ควรรับผิดชอบ Business Logic ทั้งหมด
+
+Controller
+ไม่ควรรับผิดชอบ Business Logic ทั้งหมด
+
+Service
+ไม่ควรรับผิดชอบทุกอย่าง
+
+Database Logic
+ไม่ควรกระจายอยู่ทั่วโปรเจกต์โดยไม่มีโครงสร้าง
+
+==================================================
+7. Documentation
+==================================================
+
+ตรวจสอบ
+
+- README
+- Installation
+- Environment Setup
+- Development Setup
+- Production Setup
+- API Documentation
+- Database Documentation
+- Architecture Documentation
+- Authentication Flow
+- Deployment Documentation
+
+ตรวจสอบว่า Developer ใหม่สามารถ Clone Project
+และเริ่มต้น Project ได้โดยไม่ต้องถามคนเขียนหรือไม่
+
+==================================================
+8. Technical Debt
+==================================================
+
+ค้นหา
+
+- TODO
+- FIXME
+- Temporary Code
+- Workaround
+- Hardcoded Value
+- Deprecated Code
+- Legacy Code
+- Code ที่รู้ว่ามีปัญหาแต่ยังไม่ได้แก้
+
+จัดลำดับ
+
+Critical
+High
+Medium
+Low
+
+==================================================
+ข้อกำหนดสำคัญ
+==================================================
+
+- ห้าม Rewrite โปรเจกต์
+- ห้ามเปลี่ยน Business Logic
+- ห้ามเปลี่ยน API Contract
+- ห้ามเปลี่ยน Database โดยไม่ได้รับอนุญาต
+- ห้ามแยก File หรือ Component โดยไม่มีเหตุผล
+- ห้ามเพิ่ม Abstraction ที่ไม่จำเป็น
+- ต้องแสดง Root Cause
+- ต้องอธิบายผลกระทบ
+- ต้องเสนอแนวทางแก้ก่อน
+- ต้องรอการอนุมัติจากผมก่อนแก้ไข
+
+หลังแก้เสร็จให้สรุป
+
+Before
+↓
+ปัญหา
+↓
+เหตุผล
+↓
+การแก้ไข
+↓
+After
+↓
+ผลต่อ Maintainability`
   },
-  {
-    "id": "17",
-    "code": "17",
-    "icon": "🧪",
-    "category": "QA",
-    "title": "17. Edge Case / Boundary Case Review",
-    "subtitle": "ตรวจสอบ Edge Case และ Boundary Case ของโปรเจกต์ทั้งหมด",
-    "promptText": "17 — 🧪 EDGE CASE & BOUNDARY CASE REVIEW\nตรวจสอบ Edge Cases และ Boundary Conditions ของโปรเจกต์ทั้งหมด\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ:\n- Null, Undefined & Empty Data Handlings\n- Max Length, Min Length & Overflow Inputs\n- Timezone, Concurrent Requests & Race States\n- Network Drops & Timeout Recoveries"
+    {
+    id: "17",
+    code: "17",
+    icon: "🧪",
+    category: "QA",
+    title: "17. Edge Case / Boundary Case Review",
+    subtitle: "ตรวจสอบ Edge Case และ Boundary Case ของโปรเจกต์ทั้งหมด",
+    promptText: `17. 🧪 Edge Case / Boundary Case Review
+ตรวจสอบ Edge Case และ Boundary Case ของโปรเจกต์ทั้งหมด
+โดยห้ามเปลี่ยน Business Logic โดยไม่ได้รับอนุญาต
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+
+เป้าหมาย
+
+ตรวจสอบระบบในสถานการณ์ที่ผิดปกติ
+หรืออยู่นอกกรณีใช้งานปกติ
+
+ไม่ใช่ทดสอบเฉพาะ Happy Path
+
+==================================================
+1. Input
+==================================================
+
+ตรวจสอบ
+
+- Empty
+- Null
+- Undefined
+- 0
+- Negative Number
+- Decimal
+- String แทน Number
+- Number แทน String
+- Boolean ผิดประเภท
+- String ยาวเกินไป
+- Array ว่าง
+- Array ขนาดใหญ่
+- Object ว่าง
+- Missing Field
+- Extra Field
+
+==================================================
+2. Boundary
+==================================================
+
+ตรวจสอบ
+
+- Minimum Value
+- Maximum Value
+- Minimum Length
+- Maximum Length
+- 0
+- 1
+- Maximum
+- Maximum + 1
+- วันที่ในอดีต
+- วันที่ปัจจุบัน
+- วันที่อนาคต
+
+==================================================
+3. Authentication
+==================================================
+
+ทดสอบ
+
+- Login ผิด
+- Password ผิด
+- Email ไม่ถูกต้อง
+- Account ไม่มีอยู่
+- Account ถูก Disable
+- Token หมดอายุ
+- Token ไม่ถูกต้อง
+- Logout แล้วใช้ Token เดิม
+- Login พร้อมกันหลาย Device
+
+==================================================
+4. API
+==================================================
+
+ทดสอบ
+
+- Request ซ้ำ
+- Request พร้อมกัน
+- Request ไม่มี Authorization
+- Request ไม่มี Body
+- Request Body ผิด Type
+- Request ใหญ่เกินไป
+- Endpoint ไม่มีอยู่
+- HTTP Method ผิด
+
+==================================================
+5. Database
+==================================================
+
+ตรวจสอบ
+
+- Data ไม่พบ
+- Duplicate Data
+- Foreign Key ไม่พบ
+- Concurrent Update
+- Transaction Failure
+- Database Timeout
+- Database Connection Failure
+
+==================================================
+6. User Flow
+==================================================
+
+จำลอง
+
+- User กดย้อนกลับ
+- User Refresh หน้า
+- User เปิดหลาย Tab
+- User ปิด Browser
+- User Internet หลุด
+- User กด Button ซ้ำ
+- User Submit Form ซ้ำ
+- User ใช้งาน Session หมดอายุ
+
+==================================================
+ข้อกำหนด
+
+- ห้ามแก้ Business Logic เพียงเพื่อให้ Edge Case ผ่าน
+- ต้องแยกว่าเป็น Bug หรือ Expected Behavior
+- ต้องระบุ Impact
+- ต้องระบุวิธีแก้
+- ต้องรอการอนุมัติก่อนแก้ไข
+
+หลังแก้ให้สรุป
+
+Test Case
+↓
+ผลลัพธ์เดิม
+↓
+ปัญหา
+↓
+การแก้ไข
+↓
+ผลลัพธ์ใหม่`
   },
-  {
-    "id": "18",
-    "code": "18",
-    "icon": "🔄",
-    "category": "Data Flow",
-    "title": "18. Data Flow Review",
-    "subtitle": "ตรวจสอบการเดินทางของข้อมูลตั้งแต่ Frontend → Backend → Database",
-    "promptText": "18 — 🔄 DATA FLOW REVIEW\nตรวจสอบการเดินทางของข้อมูลตั้งแต่ Frontend → Backend → Database\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ:\n- Payload Minimization & Unused Field Stripping\n- Type Safety across Layers (DTO -> Entity -> UI Model)\n- Data Mutation Consistency & Side Effects"
+    {
+    id: "18",
+    code: "18",
+    icon: "🔄",
+    category: "Data Flow",
+    title: "18. Data Flow Review",
+    subtitle: "ตรวจสอบการเดินทางของข้อมูลตั้งแต่ Frontend → Backend → Database",
+    promptText: `18. 🔄 Data Flow Review
+ตรวจสอบ Data Flow ของโปรเจกต์ทั้งหมด
+โดยห้ามเปลี่ยน Architecture หรือ Business Logic
+โดยไม่ได้รับอนุญาต
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+
+เป้าหมาย
+
+ทำความเข้าใจว่า Data เดินทางจาก User
+ผ่าน Frontend → Backend → Database
+และกลับมายัง User อย่างไร
+
+==================================================
+1. Frontend
+==================================================
+
+ตรวจสอบ
+
+User Input
+↓
+Component
+↓
+State
+↓
+Hook
+↓
+API Client
+↓
+Request
+
+ตรวจสอบว่า
+
+- Data ถูก Validate หรือไม่
+- Data ถูก Transform ที่ไหน
+- Data ถูกเก็บใน State ที่ไหน
+- มีการส่ง Data ซ้ำหรือไม่
+
+==================================================
+2. Backend
+==================================================
+
+ตรวจสอบ
+
+Request
+↓
+Middleware
+↓
+Guard
+↓
+Pipe
+↓
+Controller
+↓
+Service
+↓
+Repository / ORM
+↓
+Database
+
+ตรวจสอบว่าแต่ละ Layer มีหน้าที่อะไร
+
+==================================================
+3. Database
+==================================================
+
+ตรวจสอบ
+
+- Data ถูกเก็บที่ไหน
+- Relationship
+- Foreign Key
+- Transaction
+- Query
+- Index
+- Data Transformation
+
+==================================================
+4. Response Flow
+==================================================
+
+ตรวจสอบ
+
+Database
+↓
+Service
+↓
+Controller
+↓
+API Response
+↓
+Frontend
+↓
+UI
+
+ตรวจสอบว่า Response มีข้อมูลเกินความจำเป็นหรือไม่
+
+==================================================
+5. Data Security
+==================================================
+
+ตรวจสอบ
+
+- Sensitive Data
+- Password
+- Token
+- Internal ID
+- Personal Data
+- Admin Data
+
+ตรวจสอบว่า Data ถูกส่งไปยัง Client
+โดยไม่จำเป็นหรือไม่
+
+==================================================
+6. Data Duplication
+==================================================
+
+ตรวจสอบ
+
+- Data ถูก Fetch ซ้ำ
+- Data ถูก Store ซ้ำ
+- Data ถูก Transform ซ้ำ
+- API ถูกเรียกซ้ำ
+- Database Query ซ้ำ
+
+==================================================
+ข้อกำหนด
+
+- ห้ามเปลี่ยน API Contract
+- ห้ามเปลี่ยน Database Schema
+- ห้ามเปลี่ยน Business Logic
+- ต้องแสดง Data Flow ปัจจุบัน
+- ต้องระบุจุดที่เป็น Bottleneck
+- ต้องระบุจุดที่เกิด Data Duplication
+- ต้องเสนอแนวทางก่อนแก้
+- ต้องรอการอนุมัติ`
   },
-  {
-    "id": "19",
-    "code": "19",
-    "icon": "🧠",
-    "category": "State",
-    "title": "19. State Management Review",
-    "subtitle": "ตรวจสอบการจัดการ State (Local, Global, Server, Form, URL, Cache) ทั้งระบบ",
-    "promptText": "19 — 🧠 STATE MANAGEMENT REVIEW\nตรวจสอบการจัดการ State (Local, Global, Server, Form, URL, Cache) ทั้งระบบ\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ:\n- Redundant State & Single Source of Truth\n- Server State vs Client State Separation (React Query / SWR vs Context)\n- Unnecessary Re-renders & Memory Leaks"
+    {
+    id: "19",
+    code: "19",
+    icon: "🧠",
+    category: "State",
+    title: "19. State Management Review",
+    subtitle: "ตรวจสอบการจัดการ State (Local, Global, Server, Form, URL, Cache) ทั้งระบบ",
+    promptText: `19. 🧠 State Management Review
+ตรวจสอบ State Management ของโปรเจกต์ทั้งหมด
+โดยห้ามเปลี่ยน Business Logic หรือ UX
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+
+==================================================
+1. State ที่ใช้งาน
+==================================================
+
+ตรวจสอบ
+
+- Local State
+- Global State
+- Server State
+- Form State
+- URL State
+- Cache State
+- Session State
+- Authentication State
+
+==================================================
+2. State Location
+==================================================
+
+สำหรับแต่ละ State ให้ตรวจสอบว่า
+
+- State อยู่ถูก Component หรือไม่
+- State ควรอยู่ Local หรือ Global
+- State ถูกส่งผ่าน Props มากเกินไปหรือไม่
+- มี Prop Drilling หรือไม่
+- มี Global State ที่ไม่จำเป็นหรือไม่
+
+==================================================
+3. State Duplication
+==================================================
+
+ตรวจสอบ
+
+- State เดียวกันถูกเก็บหลายที่หรือไม่
+- Server Data ถูกเก็บซ้ำใน Client State หรือไม่
+- Cache และ State ไม่ตรงกันหรือไม่
+- State เก่าไม่ถูก Update หรือไม่
+
+==================================================
+4. Loading / Error State
+==================================================
+
+ตรวจสอบ
+
+- Loading
+- Error
+- Empty
+- Success
+- Refetch
+- Retry
+- Stale Data
+
+==================================================
+5. React / Next.js
+==================================================
+
+ตรวจสอบ
+
+- useState
+- useReducer
+- Context
+- Server Component
+- Client Component
+- Server State
+- Data Fetching
+- Hydration
+
+ตรวจสอบว่ามี State ที่ควรเป็น Server Data
+แต่ถูกจัดการเป็น Client State โดยไม่จำเป็นหรือไม่
+
+==================================================
+ข้อกำหนด
+
+- ห้ามเปลี่ยน UX
+- ห้ามเปลี่ยน Business Logic
+- ห้ามเพิ่ม State Management Library โดยไม่จำเป็น
+- ห้ามย้าย State เพียงเพื่อให้ Code ดูสวย
+- ต้องอธิบายผลกระทบก่อนแก้
+- ต้องรอการอนุมัติ`
   },
-  {
-    "id": "20",
-    "code": "20",
-    "icon": "🔌",
-    "category": "API",
-    "title": "20. API Design Review",
-    "subtitle": "ตรวจสอบ Endpoints, Requests, Responses, Status Codes, Security, Performance & Docs",
-    "promptText": "20 — 🔌 API DESIGN & CONTRACT REVIEW\nตรวจสอบ Endpoints, Requests, Responses, Status Codes, Security, Performance & Docs\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ:\n- RESTful Naming Conventions & HTTP Verbs Consistency\n- Standardized Error & Success Response Contracts\n- Versioning Strategy & OpenAPI/Swagger Documentation"
+    {
+    id: "20",
+    code: "20",
+    icon: "🔌",
+    category: "API",
+    title: "20. API Design Review",
+    subtitle: "ตรวจสอบ Endpoints, Requests, Responses, Status Codes, Security, Performance & Docs",
+    promptText: `20. 🔌 API Design Review
+ตรวจสอบ API Design ของโปรเจกต์ทั้งหมด
+โดยห้ามเปลี่ยน API Contract โดยไม่ได้รับอนุญาต
+
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+
+==================================================
+1. Endpoint
+==================================================
+
+ตรวจสอบ
+
+- Naming
+- URL Structure
+- HTTP Method
+- REST Convention
+- Resource Naming
+- Nested Resource
+- Versioning
+
+==================================================
+2. Request
+==================================================
+
+ตรวจสอบ
+
+- Params
+- Query
+- Body
+- Header
+- DTO
+- Validation
+- Required Field
+- Optional Field
+- Data Type
+
+==================================================
+3. Response
+==================================================
+
+ตรวจสอบ
+
+- Response Structure
+- Data
+- Message
+- Metadata
+- Pagination
+- Error Format
+
+ตรวจสอบว่า API Response
+มีข้อมูลมากเกินความจำเป็นหรือไม่
+
+==================================================
+4. HTTP Status Code
+==================================================
+
+ตรวจสอบ
+
+- 200
+- 201
+- 204
+- 400
+- 401
+- 403
+- 404
+- 409
+- 422
+- 429
+- 500
+
+ตรวจสอบว่า Status Code
+ตรงกับสถานการณ์จริงหรือไม่
+
+==================================================
+5. Security
+==================================================
+
+ตรวจสอบ
+
+- Authentication
+- Authorization
+- Rate Limit
+- Input Validation
+- Sensitive Data
+- Admin Endpoint
+- IDOR / BOLA
+
+==================================================
+6. API Performance
+==================================================
+
+ตรวจสอบ
+
+- Duplicate Request
+- N+1 Request
+- Large Response
+- Pagination
+- Caching
+- Compression
+
+==================================================
+7. Documentation
+==================================================
+
+ตรวจสอบ
+
+- Swagger
+- OpenAPI
+- Request Example
+- Response Example
+- Error Example
+- Authentication Documentation
+
+==================================================
+ข้อกำหนด
+
+- ห้ามเปลี่ยน API Contract ทันที
+- ต้องระบุ Breaking Change หากมี
+- ห้ามเปลี่ยน Endpoint โดยไม่มีเหตุผล
+- ห้ามเปลี่ยน Response โดยไม่แจ้งผลกระทบ
+- ต้องเสนอแนวทางก่อนแก้
+- ต้องรอการอนุมัติ`
   }
 ];
 
