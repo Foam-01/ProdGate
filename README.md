@@ -27,6 +27,16 @@ A modern **React + Vite** web application designed for production gate checklist
 - **Styling**: Vanilla CSS3 (Modern Glassmorphism, Responsive Grid, Smooth Micro-animations)
 
 ---
+## 🖥️ Screenshots
+<img width="1911" height="905" alt="image" src="https://github.com/user-attachments/assets/d978ec37-858d-47d8-a34b-74ff54885933" />
+<img width="1893" height="914" alt="image" src="https://github.com/user-attachments/assets/9d43bc23-b50e-4f2a-8c6c-7f80af588e4e" />
+<img width="1896" height="908" alt="image" src="https://github.com/user-attachments/assets/a2098dc6-52ec-4ce3-9ef5-b087efa9b4b6" />
+<img width="1903" height="909" alt="image" src="https://github.com/user-attachments/assets/562bf4be-42b3-4394-a8bc-81bb1bce5634" />
+<img width="1915" height="924" alt="image" src="https://github.com/user-attachments/assets/de097ca7-9d2a-4dcc-800c-8985a069fe80" />
+<img width="1898" height="902" alt="image" src="https://github.com/user-attachments/assets/e572e3cd-f557-4172-99a1-3ff6627be07c" />
+
+
+---
 
 ## 🚀 Getting Started
 
