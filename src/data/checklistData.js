@@ -819,50 +819,429 @@ Backend
 - ห้ามเปิดเผยข้อมูล Sensitive
 - วิเคราะห์ก่อนแก้`
   },
-  {
-    "id": "11",
-    "code": "11",
-    "icon": "📊",
-    "category": "Observability",
-    "title": "11. Observability",
-    "subtitle": "ตรวจสอบ Logging, Metrics, Tracing และระบบติดตามปัญหาในระดับ Production",
-    "promptText": "11 — 📊 OBSERVABILITY & LOGGING\nตรวจสอบ Observability ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ\n\n- Structured Logging & Log Levels\n- Error Tracking Integration (Sentry / LogRocket)\n- Application Health Checks & Endpoint Metrics\n- Traceability across Services\n\nข้อกำหนด\n\n- ห้ามเก็บ Sensitive Data ใน Log\n- วิเคราะห์ก่อนติดตั้ง Monitoring Tools"
+    {
+    id: "11",
+    code: "11",
+    icon: "📊",
+    category: "Observability",
+    title: "11. Observability",
+    subtitle: "ตรวจสอบ Logging, Metrics, Tracing และระบบติดตามปัญหาในระดับ Production",
+    promptText: `11 — 📊 OBSERVABILITY
+นี่คือสิ่งที่ทำให้คุณเริ่มคิดแบบ Production Developer
+ตรวจสอบ Observability ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามติดตั้ง Monitoring Tool ทันที
+ 
+ตรวจสอบ
+ 
+Logging
+ 
+- API Request
+- API Response Time
+- Error
+- Authentication Event
+- Database Error
+- External API Error
+- Queue Error
+- Background Job
+- Critical Business Event
+ 
+Metrics
+ 
+- Request Count
+- Response Time
+- Error Rate
+- CPU
+- Memory
+- Database Performance
+- Cache Hit Rate
+- Queue Length
+- Queue Failure
+- Active Users หากจำเป็น
+ 
+Tracing
+ 
+- Request → API
+- API → Service
+- Service → Database
+- Service → External API
+ 
+ตรวจสอบว่าหาก User แจ้งว่า
+ 
+"หน้า Dashboard ช้า"
+ 
+เราสามารถระบุได้หรือไม่ว่า
+ 
+Frontend
+→ API
+→ Service
+→ Database
+ 
+ช้าตรงไหน
+ 
+ข้อกำหนด
+ 
+- ห้ามเก็บ Sensitive Data ใน Log
+- ห้าม Log Password
+- ห้าม Log Token
+- ห้าม Log API Key
+- ห้ามเพิ่ม Monitoring Library โดยไม่อธิบายเหตุผล
+- วิเคราะห์ก่อนติดตั้ง`
   },
-  {
-    "id": "12",
-    "code": "12",
-    "icon": "💾",
-    "category": "Caching",
-    "title": "12. Cache & Redis Strategy",
-    "subtitle": "ประเมินและวางแผนการใช้งาน Caching, TTL, Invalidation และ Redis สำหรับระบบ",
-    "promptText": "12 — 💾 CACHING & REDIS STRATEGY\nตรวจสอบว่าระบบมีส่วนใดที่เหมาะสมกับ Caching หรือ Redis โดยห้ามเพิ่ม Redis ทันที\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ\n\n- Query & API Caching Candidates\n- Cache TTL & Invalidation Strategies\n- Redis Use Cases (Rate Limiting, Session, Queue)\n- Memory Estimation & Trade-offs Analysis\n\nข้อกำหนด\n\n- ห้ามติดตั้ง Redis หากไม่มีเหตุผลชัดเจน\n- ต้องออกแบบ Cache Invalidation"
+    {
+    id: "12",
+    code: "12",
+    icon: "💾",
+    category: "Caching",
+    title: "12. Cache & Redis Strategy",
+    subtitle: "ประเมินและวางแผนการใช้งาน Caching, TTL, Invalidation และ Redis สำหรับระบบ",
+    promptText: `12 — 💾 CACHE / REDIS
+อันนี้เก็บไว้ใช้ตอนคุณพร้อมเรียน Redis
+ตรวจสอบว่าระบบมีส่วนใดที่เหมาะสมกับ Caching หรือ Redis โดยห้ามเพิ่ม Redis ทันที
+ 
+เริ่มจากการวิเคราะห์ก่อน
+ 
+ตรวจสอบ
+ 
+- Query ที่ถูกเรียกบ่อย
+- Data ที่เปลี่ยนไม่บ่อย
+- API ที่ Response ช้า
+- API ที่ถูกเรียกซ้ำ
+- Dashboard
+- Statistics
+- Profile
+- Configuration
+- Reference Data
+- Rate Limiting
+- Session
+- Background Job
+- Queue
+ 
+สำหรับแต่ละ Candidate ให้ระบุ
+ 
+- ข้อมูลอะไรควร Cache
+- ทำไมควร Cache
+- TTL ที่เหมาะสม
+- Cache Key
+- Cache Invalidation
+- Cache Hit / Miss
+- ผลกระทบหาก Cache มีข้อมูลเก่า
+- Memory ที่คาดว่าจะใช้
+- กรณีที่ไม่ควร Cache
+ 
+Redis
+ 
+- Cache
+- Session
+- Rate Limiting
+- Queue
+- BullMQ
+- Pub/Sub หากจำเป็น
+ 
+ข้อกำหนด
+ 
+- ห้ามติดตั้ง Redis หากไม่มีเหตุผล
+- ห้าม Cache ข้อมูล Sensitive โดยไม่วิเคราะห์
+- ห้ามทำให้ข้อมูลไม่ถูกต้องเพราะ Cache
+- ต้องออกแบบ Cache Invalidation
+- ต้องอธิบาย Trade-off
+- ห้ามเปลี่ยน Business Logic`
   },
-  {
-    "id": "13",
-    "code": "13",
-    "icon": "🚀",
-    "category": "DevOps",
-    "title": "13. Deployment & Production Readiness",
-    "subtitle": "ตรวจสอบความพร้อมระดับ Production (Environment, Build, Docker, CI/CD และ Rollback)",
-    "promptText": "13 — 🚀 DEPLOYMENT & PRODUCTION READINESS\nตรวจสอบความพร้อมของโปรเจกต์สำหรับ Production โดยห้ามเปลี่ยน Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน\n\nสิ่งที่ต้องตรวจสอบ\n\n- Environment Variables & Config Management\n- Production Build Verification & Asset Bundling\n- Dockerfile & Container Optimization\n- CI/CD Pipelines & Automated Rollback Plans\n- Health Check Endpoints (/health)\n\nข้อกำหนด\n\n- ห้าม Deploy จริงโดยไม่ได้รับอนุมัติ\n- ห้ามลบ Production Data"
+    {
+    id: "13",
+    code: "13",
+    icon: "🚀",
+    category: "DevOps",
+    title: "13. Deployment & Production Readiness",
+    subtitle: "ตรวจสอบความพร้อมระดับ Production (Environment, Build, Docker, CI/CD และ Rollback)",
+    promptText: `13 — 🚀 DEPLOYMENT / PRODUCTION
+ตรวจสอบความพร้อมของโปรเจกต์สำหรับ Production โดยห้ามเปลี่ยน Business Logic
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้าม Deploy หรือเปลี่ยน Infrastructure ทันที
+ 
+ตรวจสอบ
+ 
+Environment
+ 
+- Environment Variables
+- Development
+- Test
+- Production
+- Secret Management
+- API URL
+- Database URL
+- OAuth Configuration
+ 
+Build
+ 
+- Production Build
+- TypeScript
+- Lint
+- Test
+- Bundle
+- Environment
+ 
+Security
+ 
+- HTTPS
+- CORS
+- Cookie
+- Security Headers
+- Rate Limit
+- Secret
+ 
+Database
+ 
+- Migration
+- Backup
+- Restore
+- Connection Pool
+- Production Schema
+ 
+Infrastructure
+ 
+- Docker
+- Health Check
+- Restart Policy
+- Logging
+- Monitoring
+- CPU
+- Memory
+- Storage
+ 
+CI/CD
+ 
+- Build
+- Test
+- Deploy
+- Migration
+- Rollback
+ 
+ตรวจสอบว่าหาก Deployment ครั้งใหม่มีปัญหา สามารถ Rollback ได้หรือไม่
+ 
+ควรมี Health Check เช่น
+ 
+GET /health
+ 
+ข้อกำหนด
+ 
+- ห้าม Deploy จริงโดยไม่ได้รับอนุญาต
+- ห้ามลบ Production Data
+- ห้ามเปลี่ยน Environment Secret
+- ห้ามแก้ Business Logic
+- ทุก Infrastructure Change ต้องอธิบายผลกระทบก่อน`
   },
-  {
-    "id": "14",
-    "code": "14",
-    "icon": "📈",
-    "category": "Scalability",
-    "title": "14. Scalability",
-    "subtitle": "วิเคราะห์ขีดจำกัด คอขวด (Bottleneck) และแผนการ Scale ตามปริมาณผู้ใช้งาน",
-    "promptText": "14 — 📈 SCALABILITY & BOTTLENECK ANALYSIS\nวิเคราะห์ Scalability ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามเพิ่ม Infrastructure ทันที\n\nสถานการณ์ที่ต้องวิเคราะห์\n\n- Traffic Scaling (10 → 1,000 → 100,000 Users)\n- Database Connection Bottlenecks\n- Stateless Application Architecture\n- Horizontal vs Vertical Scaling Feasibility\n\nข้อกำหนด\n\n- ห้ามเพิ่ม Service หรือ Infrastructure โดยไม่มีข้อมูลรองรับ\n- ต้องอธิบาย Cost / Benefit"
+    {
+    id: "14",
+    code: "14",
+    icon: "📈",
+    category: "Scalability",
+    title: "14. Scalability",
+    subtitle: "วิเคราะห์ขีดจำกัด คอขวด (Bottleneck) และแผนการ Scale ตามปริมาณผู้ใช้งาน",
+    promptText: `14 — 📈 SCALABILITY
+อันนี้เอาไว้ถามว่า
+"ถ้าคนใช้เพิ่มขึ้น ระบบจะพังตรงไหน?"
+ 
+ตรวจสอบ Scalability ของโปรเจกต์ทั้งหมด โดยห้ามเปลี่ยน Business Logic
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามเพิ่ม Infrastructure ทันที
+ 
+วิเคราะห์ระบบในสถานการณ์
+ 
+- 10 Users
+- 100 Users
+- 1,000 Users
+- 10,000 Users
+- 100,000 Users
+ 
+ตรวจสอบ
+ 
+Frontend
+ 
+- Static Asset
+- Image
+- Video
+- CDN
+- Bundle Size
+ 
+Backend
+ 
+- CPU
+- Memory
+- Concurrent Request
+- Connection
+- API Bottleneck
+- Rate Limit
+- Stateless Architecture
+ 
+Database
+ 
+- Connection Pool
+- Slow Query
+- Index
+- Read / Write Load
+- Lock
+- Transaction
+- Connection Limit
+ 
+Redis
+ 
+- Cache
+- Cache Hit Rate
+- Memory
+- TTL
+- Invalidation
+- Rate Limiting
+- Queue
+ 
+Queue
+ 
+- Background Job
+- Worker
+- Retry
+- Dead Letter Queue
+- Queue Length
+ 
+Infrastructure
+ 
+- Horizontal Scaling
+- Vertical Scaling
+- Load Balancer
+- CDN
+- Health Check
+- Auto Scaling
+ 
+ให้ระบุ
+ 
+- Current Bottleneck
+- Potential Bottleneck
+- Maximum Risk
+- จุดที่ควร Scale
+- จุดที่ยังไม่จำเป็นต้อง Scale
+ 
+ห้ามเพิ่ม Infrastructure เพียงเพราะ "เผื่ออนาคต"
+ 
+ให้เลือกตามข้อมูลและ Traffic ที่คาดการณ์ได้
+ 
+ข้อกำหนด
+ 
+- ห้ามเปลี่ยน Business Logic
+- ห้ามเพิ่ม Service โดยไม่มีเหตุผล
+- ห้ามใช้ Microservices เพียงเพื่อให้ระบบดูใหญ่
+- ต้องอธิบาย Cost / Benefit
+- วิเคราะห์ก่อนแก้`
   },
-  {
-    "id": "15",
-    "code": "15",
-    "icon": "🛡️",
-    "category": "Security",
-    "title": "15. Production Security Review",
-    "subtitle": "ตรวจสอบความปลอดภัยและช่องโหว่ระดับ Production รอบด้าน 18 มิติ",
-    "promptText": "15 — 🛡️ PRODUCTION SECURITY REVIEW (18 DIMENSIONS)\nตรวจสอบ Security และช่องโหว่ของโปรเจกต์ทั้งหมดในระดับ Production โดยห้ามเปลี่ยน Business Logic, API Contract หรือ Auth Flow\n\nเริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที\n\n18 มิติในการตรวจสอบ:\n1. Authentication & Token Rotation\n2. Authorization & Access Control (IDOR/BOLA)\n3. API Security & Headers\n4. Injection Attacks (SQLi, NoSQLi, Command)\n5. XSS Prevention & Sanitization\n6. CSRF & Cookie Security (SameSite/HttpOnly)\n7. Sensitive Data Exposure (Logs, API Responses)\n8. Environment & Secrets Leak Check\n9. Supabase RLS Policies & Bucket Security\n10. File Upload Validation & Malware Prevention\n11. Rate Limiting & Abuse Prevention\n12. Business Logic Exploits & Price Tampering\n13. Race Conditions & Atomic Transactions\n14. Dependency Vulnerabilities (npm audit)\n15. Error Handling & Sanitized Stack Traces\n16. Security Headers Configuration\n17. Session Management & Revocation\n18. Attacker Mindset Simulation Testing\n\nข้อกำหนด:\n- ต้องระบุ Root Cause, Impact, Solutions, Risk และ Files ที่เกี่ยวข้อง\n- ต้องรอการอนุมัติก่อนแก้ไข"
+    {
+    id: "15",
+    code: "15",
+    icon: "🛡️",
+    category: "Security",
+    title: "15. Production Security Review",
+    subtitle: "ตรวจสอบความปลอดภัยและช่องโหว่ระดับ Production รอบด้าน 18 มิติ",
+    promptText: `15 — 🛡️ PRODUCTION SECURITY REVIEW (18 DIMENSIONS)
+ตรวจสอบ Security และช่องโหว่ของโปรเจกต์ทั้งหมดในระดับ Production โดยห้ามเปลี่ยน Business Logic, API Contract หรือ Authentication Flow โดยไม่ได้รับอนุญาต
+ 
+เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
+ 
+เป้าหมาย
+ 
+ตรวจสอบว่าผู้โจมตีสามารถทำอะไรกับระบบได้บ้าง ไม่ใช่ตรวจเพียงว่า "ระบบทำงานได้หรือไม่"
+ 
+==================================================
+1. Authentication
+==================================================
+ 
+ตรวจสอบ
+ 
+- Login
+- Register
+- Logout
+- Password Hashing
+- Password Policy
+- JWT
+- Access Token
+- Refresh Token
+- Token Expiration
+- Token Rotation
+- Session
+- Cookie
+- OAuth
+- Google Login
+- GitHub Login
+- Email Verification
+- Password Reset
+- Account Enumeration
+- Brute Force
+- Credential Stuffing
+ 
+ทดสอบกรณี
+ 
+- Login ผิดหลายครั้ง
+- Token หมดอายุ
+- Token ถูกแก้ไข
+- Token ถูก Replay
+- Refresh Token ถูกนำกลับมาใช้
+- User Logout แล้ว Token เดิมยังใช้ได้หรือไม่
+ 
+==================================================
+2. Authorization / Access Control
+==================================================
+ 
+ตรวจสอบว่า User สามารถเข้าถึงเฉพาะ Resource ที่ตัวเองมีสิทธิ์เท่านั้น
+ 
+ทดสอบ
+ 
+User A → พยายามเข้าถึง → ข้อมูล User B
+ 
+ตรวจสอบ
+ 
+- IDOR
+- BOLA
+- RBAC
+- Permission
+- Role
+- Admin Endpoint
+- Ownership
+- Resource Authorization
+- API Authorization
+ 
+ห้ามเชื่อเพียง Frontend ว่าซ่อน Button แล้วปลอดภัย ต้องตรวจสอบ Authorization ที่ Backend ด้วย
+ 
+==================================================
+3. API Security
+==================================================
+ 
+ตรวจสอบ Input Validation, DTO Validation, Rate Limiting, CORS, Security Headers, Sensitive Endpoints
+ 
+==================================================
+4. Injection & XSS
+==================================================
+ 
+ตรวจสอบ SQLi, NoSQLi, XSS, Command Injection, Path Traversal
+ 
+==================================================
+5. CSRF & Sensitive Data Exposure
+==================================================
+ 
+ตรวจสอบ HttpOnly, Secure, SameSite Cookie Flags, Sensitive Data In Responses/Logs
+ 
+==================================================
+6. Secrets & Environment & RLS
+==================================================
+ 
+ตรวจสอบ .env, API Keys, Supabase RLS Policies & Bucket Security
+ 
+==================================================
+7. Business Logic & Race Conditions
+==================================================
+ 
+ตรวจสอบ Price Tampering, Coupon Replay, Atomic Transactions & Concurrency
+ 
+==================================================
+8. Security Testing & Severity Grading
+==================================================
+ 
+จัดลำดับ Critical / High / Medium / Low / Informational พร้อม Root Cause และเสนอวิธีแก้ก่อนลงมือ`
   },
   {
     "id": "16",
