@@ -366,7 +366,6 @@ Accessibility
     title: "05. Performance",
     subtitle: "ตรวจสอบและปรับปรุงความเร็วในการโหลดทั้ง Frontend, Backend และ Database",
     promptText: `05 — ⚡ PERFORMANCE
-
  
 ตรวจสอบ Performance ของเว็บไซต์ทั้งหมด และปรับปรุงความเร็วในการโหลด โดยห้ามเปลี่ยนหน้าตา ฟังก์ชันการทำงาน หรือ Business Logic
  
