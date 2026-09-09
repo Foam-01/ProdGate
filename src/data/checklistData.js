@@ -304,7 +304,9 @@ export const CARDS_PART1 = [
 เริ่มจากการวิเคราะห์ก่อน ห้ามแก้ไขทันที
  
 Responsive
- 
+
+- iPhone SE 375 x 667  
+- iPad Pro 1024 x 1366
 - Desktop
 - Laptop
 - Tablet
