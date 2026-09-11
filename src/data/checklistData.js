@@ -375,6 +375,8 @@ Accessibility
  
 Frontend
  
+Frontend
+
 - วิเคราะห์ Page Load Time
 - วิเคราะห์ Core Web Vitals
 - ตรวจสอบ JavaScript Bundle Size
@@ -382,8 +384,13 @@ Frontend
 - ตรวจสอบ API Requests ที่ซ้ำ
 - ตรวจสอบ React Re-render
 - ตรวจสอบ Component ที่ Re-render บ่อย
+
+- ตรวจสอบ Server-side Rendering (SSR)
+- ตรวจสอบ Client-side Rendering (CSR)
+
 - ตรวจสอบ Client Components
 - ตรวจสอบ Server Components
+
 - ตรวจสอบ Dynamic Import
 - ตรวจสอบ Code Splitting
 - ตรวจสอบ Lazy Loading
