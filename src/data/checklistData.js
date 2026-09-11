@@ -375,7 +375,7 @@ Accessibility
 
 ***********************************************************
 Frontend
-ตรวจสอบ Performance ของหน้า Products เท่านั้น
+ตรวจสอบ Performance ของหน้า **** เท่านั้น
 
 โฟกัสเฉพาะ:
 - ตรวจสอบ Server-side Rendering (SSR)
