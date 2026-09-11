@@ -398,6 +398,56 @@ Frontend
 - Rewrite โค้ดทั้งหมด
 
 ****************************************************
+****************************************************
+ตรวจสอบ Performance ของ API
+
+GET /api/******
+
+เท่านั้น
+
+ห้ามแก้ไขโค้ดทันที
+ให้วิเคราะห์ก่อน
+
+ตรวจสอบ:
+- API Response Time
+- Slow API
+- Database Query
+- N+1 Query
+- Authentication
+- Middleware
+- Guard
+- Interceptor
+- Logging
+- Memory
+- CPU
+- Connection Pool
+- Duplicate Query
+- Pagination
+- SELECT *
+- Index
+- Cache ที่เหมาะสม
+
+สำหรับทุกปัญหาที่พบ ให้ระบุ:
+1. Problem
+2. Root Cause
+3. Impact
+4. Severity
+5. Solution
+6. ข้อดี
+7. ข้อเสีย
+8. Risk
+
+ห้าม:
+- เปลี่ยน Business Logic
+- เปลี่ยน API Contract
+- เปลี่ยน Response Structure
+- ลบ Feature
+- Rewrite ทั้ง Module
+
+รอการอนุมัติจากผมก่อนแก้ไข
+
+
+****************************************************
  
 Frontend
 
