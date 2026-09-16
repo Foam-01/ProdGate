@@ -467,6 +467,7 @@ Frontend
 
 - ตรวจสอบ Dynamic Import
 - ตรวจสอบ Code Splitting
+- ตรวจสอบ Loading Page
 - ตรวจสอบ Lazy Loading
 - ตรวจสอบ Image Optimization
 - ตรวจสอบ next/image
