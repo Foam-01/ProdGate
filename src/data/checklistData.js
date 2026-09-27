@@ -545,7 +545,7 @@ Redis
 * **Fonts:** ตรวจสอบ Font Loading, จำนวน Font/Weight และการโหลดเฉพาะ Font ที่จำเป็น
 * **Static Assets:** ตรวจสอบ CSS, JavaScript, Icons และไฟล์ Static อื่น ๆ ที่ส่งไปยัง Browser
 * **Lazy Loading:** โหลด Media เฉพาะเมื่อกำลังจะเข้าสู่หน้าจอหรือเมื่อผู้ใช้ต้องการ
-* **Backend Cache:** ตรวจสอบ Cache-Control, ETag / Last-Modified และ `304 Not Modified`
+* **Backend Cache:** ตรวจสอบ Cache-Control, ETag / Last-Modified และ \`304 Not Modified\`
 * **Loading State:** แสดงสถานะ Loading ระหว่างรอ Media
 * **Prefetch:** ตรวจสอบและปิดการ Prefetch ที่ไม่จำเป็น
 * **Existing Files:** ตรวจสอบไฟล์เก่าที่มีขนาดใหญ่ และวางแนวทางลดขนาดโดยไม่ทำให้ข้อมูลสูญหาย
