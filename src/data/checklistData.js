@@ -1087,7 +1087,48 @@ Redis
 - ห้ามเพิ่ม Library โดยไม่อธิบายเหตุผล
 - ต้องแสดงปัญหาและสาเหตุก่อน
 - ต้องเสนอแนวทางแก้ก่อนลงมือ
-- หลังแก้ให้สรุป Performance ก่อนและหลัง หากสามารถวัดได้`
+- หลังแก้ให้สรุป Performance ก่อนและหลัง หากสามารถวัดได้
+
+### Media & Static Asset Performance
+
+ตรวจสอบและปรับปรุง Performance ของการโหลดและจัดการ Media / Static Assets ทั้ง Frontend และ Backend
+
+* **Image:** Lazy Loading, Compression, Resize, WebP/AVIF และ Cache
+* **Video:** ตรวจสอบการโหลดวิดีโอ, Lazy Loading, Streaming, Compression, Thumbnail และไม่โหลดวิดีโอที่ยังไม่จำเป็น
+* **Audio:** ตรวจสอบการโหลดไฟล์เสียง, Compression, Streaming และการโหลดเฉพาะเมื่อผู้ใช้ต้องการ
+* **PDF / Documents:** ตรวจสอบการโหลดไฟล์ขนาดใหญ่, Lazy Loading, Download Strategy และการ Cache ที่เหมาะสม
+* **File Download:** ตรวจสอบขนาดไฟล์, Compression, Streaming และการโหลดเฉพาะเมื่อผู้ใช้ร้องขอ
+* **Fonts:** ตรวจสอบ Font Loading, จำนวน Font/Weight และการโหลดเฉพาะ Font ที่จำเป็น
+* **Static Assets:** ตรวจสอบ CSS, JavaScript, Icons และไฟล์ Static อื่น ๆ ที่ส่งไปยัง Browser
+* **Lazy Loading:** โหลด Media เฉพาะเมื่อกำลังจะเข้าสู่หน้าจอหรือเมื่อผู้ใช้ต้องการ
+* **Backend Cache:** ตรวจสอบ Cache-Control, ETag / Last-Modified และ `304 Not Modified`
+* **Loading State:** แสดงสถานะ Loading ระหว่างรอ Media
+* **Prefetch:** ตรวจสอบและปิดการ Prefetch ที่ไม่จำเป็น
+* **Existing Files:** ตรวจสอบไฟล์เก่าที่มีขนาดใหญ่ และวางแนวทางลดขนาดโดยไม่ทำให้ข้อมูลสูญหาย
+* **Responsive Media:** ตรวจสอบการเลือกขนาดไฟล์ให้เหมาะกับอุปกรณ์และขนาดหน้าจอ
+
+ตรวจสอบผลลัพธ์ก่อนและหลังปรับปรุง โดยพิจารณา:
+
+* จำนวน Requests
+* ขนาดข้อมูลที่รับส่ง
+* เวลาโหลด
+* Cache Hit Rate
+* Network Usage
+* CPU / Memory
+* LCP / Core Web Vitals
+* ผลกระทบต่อ UX
+
+**ข้อควรระวัง:**
+
+* ห้ามทำให้ข้อมูลส่วนบุคคลรั่วไหลจากการตั้งค่า Cache
+* ต้องตรวจสอบสิทธิ์การเข้าถึง Media ก่อนกำหนด Cache Policy
+* ต้องไม่ทำให้ไฟล์ที่มีการเปลี่ยนแปลงแสดงข้อมูลเก่าจาก Cache
+* ห้ามโหลด Media ขนาดใหญ่โดยไม่จำเป็น
+* ห้ามแก้ไข Business Logic หรือ UI/UX เดิมโดยไม่จำเป็น
+* ต้องคำนึงถึงคุณภาพของ Media หลัง Compression
+
+
+`
   },
     {
     id: "06",
