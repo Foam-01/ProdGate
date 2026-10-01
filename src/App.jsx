@@ -16,6 +16,17 @@ export default function App() {
 
   return (
     <div className="app-layout">
+      {/* Page Hero Header */}
+      <header className="app-hero">
+        <div className="app-hero-inner">
+          <div className="app-hero-icon">📋</div>
+          <div>
+            <h1 className="app-hero-title">Developer Checklist &amp; AI Code Review Master</h1>
+            <p className="app-hero-subtitle">รวมทุกคำสั่งตรวจสอบโค้ดและกฎการทำงาน ไว้ในที่เดียว</p>
+          </div>
+        </div>
+      </header>
+
       {/* Main Container: 41 Cards Grid on Top, Master Rules at Bottom */}
       <main className="cards-scroll-container">
         <div className="cards-wrapper-grid-layout">
