@@ -28,7 +28,7 @@ export default function DetailModal({ card, isOpen, onClose, includeRulesDefault
         {/* Modal Header */}
         <div className="modal-header">
           <div className="modal-title-group">
-            <span className="modal-code-badge">ข้อ {card.code}</span>
+            <span className="modal-code-badge">{card.badge || `ข้อ ${card.code}`}</span>
             <span className="modal-icon">{card.icon}</span>
             <div>
               <h2 className="modal-heading">{card.title}</h2>

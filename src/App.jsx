@@ -1,105 +1,108 @@
-import React, { useState } from 'react'
-import { MASTER_INTRO, MASTER_41_CARDS } from './data/checklistData'
+import React, { useState, useEffect } from 'react'
+import { MASTER_41_CARDS } from './data/checklistData'
+import { MOBILE_CARDS, MOBILE_INTRO } from './data/mobileData'
 import CardItem from './components/CardItem'
 import DetailModal from './components/DetailModal'
+import HomeScreen from './components/HomeScreen'
+import RulesBanner from './components/RulesBanner'
+
+const VIEWS = ['home', 'web', 'mobile']
+
+function readView() {
+  const v = window.location.hash.replace('#', '')
+  return VIEWS.includes(v) ? v : 'home'
+}
 
 export default function App() {
+  const [view, setView] = useState(readView)
   const [selectedCard, setSelectedCard] = useState(null)
-  const [rulesCopied, setRulesCopied] = useState(false)
 
-  const handleCopyRulesOnly = () => {
-    navigator.clipboard.writeText(MASTER_INTRO.rulesText).then(() => {
-      setRulesCopied(true)
-      setTimeout(() => setRulesCopied(false), 2000)
-    })
+  useEffect(() => {
+    const onHash = () => {
+      setView(readView())
+      setSelectedCard(null)
+      window.scrollTo(0, 0)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  const go = (v) => {
+    window.location.hash = v === 'home' ? '' : v
+    if (v === 'home') {
+      setView('home')
+      setSelectedCard(null)
+      window.scrollTo(0, 0)
+    }
   }
 
+  const openCard = (c) => setSelectedCard(c)
+
   return (
-    <div className="app-layout">
-      {/* Page Hero Header */}
+    <div className={`app-layout theme-${view}`}>
       <header className="app-hero">
         <div className="app-hero-inner">
           <div className="app-hero-icon">📋</div>
-          <div>
+          <div className="app-hero-text">
             <h1 className="app-hero-title">Developer Checklist &amp; AI Code Review Master</h1>
             <p className="app-hero-subtitle">รวมทุกคำสั่งตรวจสอบโค้ดและกฎการทำงาน ไว้ในที่เดียว</p>
           </div>
+          {view !== 'home' && (
+            <button className="hero-home-btn" onClick={() => go('home')}>
+              ← หน้าแรก
+            </button>
+          )}
         </div>
       </header>
 
-      {/* Main Container: 41 Cards Grid on Top, Master Rules at Bottom */}
-      <main className="cards-scroll-container">
-        <div className="cards-wrapper-grid-layout">
+      {view === 'home' && <HomeScreen onSelect={go} />}
 
-          {/* Grid Section Header (Top of Page) */}
-          <div className="grid-section-header">
-            <h2 className="grid-section-title">
-              <span>📋</span>
-              <span>รายการการ์ด Review ทั้ง 41 ข้อ (คลิกที่การ์ดเพื่อดูรายละเอียด)</span>
-            </h2>
-            <span className="grid-section-count">
-              รวมทั้งหมด {MASTER_41_CARDS.length} ข้อ
-            </span>
-          </div>
-
-          {/* 41 Compact Cards Grid View */}
-          <div className="compact-41-grid">
-            {MASTER_41_CARDS.map((card) => (
-              <CardItem
-                key={card.id}
-                card={card}
-                onClickCard={(c) => setSelectedCard(c)}
-              />
-            ))}
-          </div>
-
-          {/* Master Introductory & Rules Banner Card (Moved to Bottom) */}
-          <div id="card-rules" className="rules-master-banner" style={{ marginTop: '24px' }}>
-            <div className="banner-head-row">
-              <h2 className="banner-main-title">
-                <span>🧠</span>
-                <span>{MASTER_INTRO.title}</span>
-              </h2>
-              <button className="btn btn-primary" onClick={handleCopyRulesOnly}>
+      {view === 'web' && (
+        <main className="cards-scroll-container">
+          <div className="cards-wrapper-grid-layout">
+            <div className="grid-section-header">
+              <h2 className="grid-section-title">
                 <span>📋</span>
-                <span>{rulesCopied ? 'คัดลอกเรียบร้อย!' : 'คัดลอกกฎ 24 ข้อ'}</span>
-              </button>
+                <span>รายการการ์ด Review ทั้ง 41 ข้อ (คลิกที่การ์ดเพื่อดูรายละเอียด)</span>
+              </h2>
+              <span className="grid-section-count">รวมทั้งหมด {MASTER_41_CARDS.length} ข้อ</span>
             </div>
 
-            {/* How to use text box */}
-            <div className="how-to-use-box">
-              <pre className="how-to-use-text">{MASTER_INTRO.howToUse}</pre>
+            <div className="compact-41-grid">
+              {MASTER_41_CARDS.map((card) => (
+                <CardItem key={card.id} card={card} onClickCard={openCard} />
+              ))}
             </div>
 
-            {/* 24 Rules Grid */}
-            <div>
-              <h3 style={{ color: 'var(--blue-dark)', fontSize: '1.1rem', marginBottom: '12px', fontWeight: '700' }}>
-                {MASTER_INTRO.rulesTitle}
-              </h3>
-              <div className="rules-grid-view">
-                {MASTER_INTRO.rulesList.map((r, i) => (
-                  <div key={i} className="rule-pill">
-                    {r}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Golden Tip Box */}
-            <div className="golden-tip-box">
-              <h3 style={{ color: 'var(--amber-text)', fontSize: '1.05rem', marginBottom: '8px', fontWeight: '700' }}>
-                {MASTER_INTRO.goldenTipTitle}
-              </h3>
-              <pre className="golden-tip-text">
-                {MASTER_INTRO.goldenTipText}
-              </pre>
-            </div>
+            <RulesBanner />
           </div>
+        </main>
+      )}
 
-        </div>
-      </main>
+      {view === 'mobile' && (
+        <main className="cards-scroll-container">
+          <div className="cards-wrapper-grid-layout">
+            <div className="grid-section-header">
+              <h2 className="grid-section-title">
+                <span>📋</span>
+                <span>รายการการ์ด Review ทั้ง {MOBILE_CARDS.length} ข้อ (คลิกที่การ์ดเพื่อดูรายละเอียด)</span>
+              </h2>
+              <span className="grid-section-count">รวมทั้งหมด {MOBILE_CARDS.length} ข้อ</span>
+            </div>
 
-      {/* Pop-up Detail Modal */}
+            <p className="section-summary">{MOBILE_INTRO.summary}</p>
+
+            <div className="compact-41-grid">
+              {MOBILE_CARDS.map((card) => (
+                <CardItem key={card.id} card={card} onClickCard={openCard} />
+              ))}
+            </div>
+
+            <RulesBanner />
+          </div>
+        </main>
+      )}
+
       <DetailModal
         card={selectedCard}
         isOpen={selectedCard !== null}

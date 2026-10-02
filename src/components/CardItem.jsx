@@ -1,10 +1,18 @@
 import React from 'react'
 
+const TONE_COUNT = 6
+
+function toneOf(text = '') {
+  let sum = 0
+  for (const ch of text) sum += ch.codePointAt(0)
+  return sum % TONE_COUNT
+}
+
 export default function CardItem({ card, onClickCard }) {
   return (
-    <div className="compact-card-item" onClick={() => onClickCard(card)}>
+    <div className={`compact-card-item tone-${toneOf(card.category)}`} onClick={() => onClickCard(card)}>
       <div className="card-top-row">
-        <span className="card-num-badge">ข้อ {card.code}</span>
+        <span className="card-num-badge">{card.badge || `ข้อ ${card.code}`}</span>
         <span className="card-category-tag">{card.category}</span>
       </div>
 
